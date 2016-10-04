@@ -9,8 +9,8 @@ Player.destroy_all
 Team.destroy_all
 
 (1..5).each do |t|
-  team = Team.create(name: "Fantasy ##{t}", manager: "Manager ##{t})
+  team = Team.create(name: "Fantasy ##{t}", manager: "Manager ##{t}")
   (1..10).each do |p|
-    player = Player.create(name: "Player ##{p}", goals: "5", assists: "10", team: team)
+    player = Player.create(name: "Player ##{p}", goals: "5", assists: "10")
   end
 end
