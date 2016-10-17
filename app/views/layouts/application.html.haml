@@ -8,5 +8,27 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
+  %body{:class => controller.controller_name}
+    .banner
+      =image_tag 'logo.svg', alt: 'Hockey Fantasy Draft'
+      %span.title= @page_title
+    #columns
+      .nav
+        %ul
+          %li
+            %a{:href => "http://localhost:3000"} Create New Team
+          %li
+            %a{:href => "http://localhost:3000/rosters"} All Teams
+          %li 
+            %a{:href => "http://localhost:3000/rosters/:id"} Your Team
+          %li
+            %a{:href => "http://localhost:3000/players"} Draft Now
+          %li 
+            %a{:href => "http://localhost:3000/teams/:id/edit"} Edit Team Info
+          %li
+            %a{:href => "http://localhost:3000/players/:id"} Advanced Player Info
+          %li 
+            %a{:href => "http://localhost:3000"} Logout / Login Placeholder
+          %li 
+            %a{:href => "http://maxdavidking.com"} Link test
     = yield
