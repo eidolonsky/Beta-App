@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root'teams#new'
   resources :rosters
   resources :teams
   resources :players
