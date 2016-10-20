@@ -16,19 +16,17 @@
       .nav
         %ul
           %li
-            %a{:href => "http://localhost:3000"} Create New Team
+            = link_to 'Create New Team', '/' 
+          %li 
+            = link_to 'All Teams', '/rosters'
+          %li 
+            = link_to 'Your Team', '/rosters/:id'
           %li
-            %a{:href => "http://localhost:3000/rosters"} All Teams
+            = link_to 'Draft Now', '/players'
           %li 
-            %a{:href => "http://localhost:3000/rosters/:id"} Your Team
+            = link_to 'Edit Team Info', '/teams/:id/edit'
           %li
-            %a{:href => "http://localhost:3000/players"} Draft Now
+            = link_to 'Advanced Player Info', 'players/:id'
           %li 
-            %a{:href => "http://localhost:3000/teams/:id/edit"} Edit Team Info
-          %li
-            %a{:href => "http://localhost:3000/players/:id"} Advanced Player Info
-          %li 
-            %a{:href => "http://localhost:3000"} Logout / Login Placeholder
-          %li 
-            %a{:href => "http://maxdavidking.com"} Link test
+            = link_to 'Logout/Login Placeholder' '/'
     = yield
