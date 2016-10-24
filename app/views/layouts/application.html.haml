@@ -2,9 +2,31 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Railsdraft2
+    %title 
+      Draft App
+      = @page_title
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
+  %body{:class => controller.controller_name}
+    .banner
+      =image_tag 'logo.svg', alt: 'Hockey Fantasy Draft'
+      %span.title= @page_title
+    #columns
+      .nav
+        %ul
+          %li
+            = link_to 'Create New Team', '/' 
+          %li 
+            = link_to 'All Teams', '/rosters'
+          %li 
+            = link_to 'Your Team', '/rosters/:id'
+          %li
+            = link_to 'Draft Now', '/players'
+          %li 
+            = link_to 'Edit Team Info', '/teams/:id/edit'
+          %li
+            = link_to 'Advanced Player Info', 'players/:id'
+          %li 
+            = link_to 'Logout/Login Placeholder' '/'
     = yield
