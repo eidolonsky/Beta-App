@@ -5,9 +5,19 @@ class PlayersController < ApplicationController
   # GET /players.json
   def index
     @players = Player.all
+    @rosters = Roster.all
     @page_title = "Players"
+    @drafted = Roster.joins(:player)
+    @pick = Player.new
   end
-
+  def pick
+    @picks = Player.find(params[:player_store])
+    @pick_id = @picks.id
+    # Need to make team_id dynamically based on login value.
+    @insert = Roster.create(player_id: @pick_id, team_id: 2)
+    @insert.save
+    @pickname = @picks.name
+  end
   # GET /players/1
   # GET /players/1.json
   def show
@@ -70,6 +80,6 @@ class PlayersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.require(:player).permit(:name, :goals, :assists)
+      params.permit(:id, :name, :goals, :assists)
     end
 end

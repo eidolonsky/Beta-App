@@ -1,20 +1,25 @@
 %p#notice= notice
 %h1 Players
-%table
-  %thead
-    %tr
-      %th Name
-      %th Goals
-      %th Assists
-      %th{:colspan => "3"}
-  %tbody
-    - @players.each do |player|
-      %tr
-        %td= player.name
-        %td= player.goals
-        %td= player.assists
-        %td= link_to 'Show', player
-        %td= link_to 'Edit', edit_player_path(player)
-        %td= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Player', new_player_path
+%p Name, Goals, Assists
+%p
+  - @players.each do |player, drafted|
+    %p
+      = player.name
+      = player.goals
+      = player.assists
+      =form_for @pick, url: {action: "pick"}, :method => :POST do
+        =button_tag 'Draft', type: :submit
+        =hidden_field_tag(:player_store, player.id)
+      = link_to 'Show', player
+      = link_to 'Edit', edit_player_path(player)
+      = link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' }
+  - @drafted.each do |drafted|
+    %p
+      = drafted.team_id
+%p Roster Id, Team ID, Player ID
+%p
+  -@rosters.each do |roster|
+    %p
+      =roster.id
+      =roster.team_id
+      =roster.player_id
