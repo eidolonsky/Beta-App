@@ -52,4 +52,4 @@ gem "haml-rails", "~> 0.9"
 
 # Adding OAuth logins
 gem "omniauth-google-oauth2"
-gem 'omniauth-twitter'
+gem "omniauth-twitter"
