@@ -49,3 +49,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added haml-rails to haml-fy all html.
 gem "haml-rails", "~> 0.9"
+
+# Adding OAuth logins
+gem "omniauth-google-oauth2"
+gem "omniauth-twitter"

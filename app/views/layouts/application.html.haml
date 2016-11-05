@@ -26,7 +26,12 @@
           %li 
             = link_to 'Edit Team Info', '/teams/:id/edit'
           %li
-            = link_to 'Advanced Player Info', 'players/:id'
-          %li 
-            = link_to 'Logout/Login Placeholder' '/'
+            = link_to 'Advanced Player Info', 'players/:id' 
+          - if current_user
+            %li
+              Welcome,
+              = current_user.name.titleize
+              = link_to 'Log Out', '/logout', method: :delete
+          - else
+            %li= link_to 'Login with Twitter', '/auth/twitter'
     = yield
