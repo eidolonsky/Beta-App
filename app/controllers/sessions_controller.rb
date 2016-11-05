@@ -5,5 +5,9 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
   def destroy
+    if current_user
+      session.delete(:id)
+    end
+    redirect_to root_path    
   end
 end
