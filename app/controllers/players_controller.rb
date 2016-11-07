@@ -4,10 +4,10 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
+    @page_title = "Players"
     @players = Player.all
     @rosters = Roster.all
-    @page_title = "Players"
-    @drafted = Roster.joins(:player)
+    #@drafted = Roster.joins(:player)
     @pick = Player.new
   end
   def pick
