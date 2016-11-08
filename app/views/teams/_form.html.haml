@@ -9,9 +9,9 @@
           %li= message
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, :placeholder=> current_user.name.titleize + "'s Crazy Team"
   .field
     = f.label :manager
-    = f.text_field :manager
+    = f.text_field :manager, :placeholder=> current_user.name.titleize
   .actions
     = f.submit
