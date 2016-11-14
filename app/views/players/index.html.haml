@@ -1,25 +1,18 @@
 %p#notice= notice
 %h1 Players
-%p Name, Goals, Assists
+%p Name, Goals, Assists, Drafter
 %p
-  - @players.each do |player, drafted|
+  - @players.each do |player|
     %p
       = player.name
       = player.goals
       = player.assists
+      - player.rosters.each do |roster|
+        %b
+          = roster.team_id
       =form_for @pick, url: {action: "pick"}, :method => :POST do
         =button_tag 'Draft', type: :submit
         =hidden_field_tag(:player_store, player.id)
       = link_to 'Show', player
       = link_to 'Edit', edit_player_path(player)
       = link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' }
-  - @drafted.each do |drafted|
-    %p
-      = drafted.team_id
-%p Roster Id, Team ID, Player ID
-%p
-  -@rosters.each do |roster|
-    %p
-      =roster.id
-      =roster.team_id
-      =roster.player_id

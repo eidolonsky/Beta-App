@@ -8,6 +8,7 @@
 Player.destroy_all
 Team.destroy_all
 
+
 (1..5).each do |t|
   team = Team.create(name: "Fantasy ##{t}", manager: "Manager ##{t}")
   (1..10).each do |p|
