@@ -1,10 +1,14 @@
-%p#notice= notice
-%p
-  %strong Name:
-  = @team.name
-%p
-  %strong Manager:
-  = @team.manager
-= link_to 'Edit', edit_team_path(@team)
-|
-= link_to 'Back', teams_path
+.tilebox
+  .tiles
+    %p#notice= notice
+    %p
+      %strong Name:
+      = @team.name
+    %p
+      %strong Manager:
+      = @team.manager
+.buttonbox
+  .buttons
+    = link_to 'Edit', edit_team_path(@team)
+  .buttons
+    = link_to 'Back', teams_path
