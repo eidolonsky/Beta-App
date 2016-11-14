@@ -7,14 +7,13 @@ class PlayersController < ApplicationController
     @page_title = "Players"
     @players = Player.all
     @rosters = Roster.all
-    #@drafted = Roster.joins(:player)
     @pick = Player.new
   end
   def pick
     @picks = Player.find(params[:player_store])
     @pick_id = @picks.id
     # Need to make team_id dynamically based on login value.
-    @insert = Roster.create(player_id: @pick_id, team_id: 2)
+    @insert = Roster.create(player_id: @pick_id, team_id: 15)
     @insert.save
     @pickname = @picks.name
   end
