@@ -34,7 +34,7 @@
               = link_to 'Logout', '/logout', method: :delete
               = current_team.name[1]
             %li
-              = link_to 'Change Team', teams_path, method: :update
+              = link_to 'Change Team', teams_path
           - else
             %li= link_to 'Login with Twitter', '/auth/twitter'
     = yield
