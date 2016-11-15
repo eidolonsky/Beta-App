@@ -32,7 +32,8 @@
               Welcome,
               = current_user.name.titleize
               = link_to 'Logout', '/logout', method: :delete
-              = current_team.name
+              = current_team.name[1]
           - else
             %li= link_to 'Login with Twitter', '/auth/twitter'
+            %li= link_to 'Login with Google', '/auth/google'
     = yield
