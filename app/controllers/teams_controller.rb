@@ -5,8 +5,9 @@ class TeamsController < ApplicationController
   # GET /teams.json
   def index
     @teams = Team.where(:user_id => current_team.user_id)
+    @placeholder = Team.new
   end
-
+  
   # GET /teams/1
   # GET /teams/1.json
   def show

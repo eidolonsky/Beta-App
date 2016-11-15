@@ -9,7 +9,10 @@
         = team.manager
       .buttons
         .showbutton
+          = form_for @placeholder do
+            = button_tag 'Select', type: :submit
+            = hidden_field_tag(:team_store, team.id)
           = link_to 'Show', team
-        = link_to 'Edit', edit_team_path(team)
+          = link_to 'Edit', edit_team_path(team)
 .newback
   = link_to 'New Team', new_team_path

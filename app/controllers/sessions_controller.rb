@@ -2,12 +2,11 @@ class SessionsController < ApplicationController
   def create
     @user = User.from_omniauth(request.env['omniauth.auth'])
     session[:id] = @user.id
-    session[:team] = @user.teams.last
     redirect_to root_path
   end
   
   def set_team
-    #session[:team] =
+    session[:team] = Team.find(params[:team_store])
   end
 
   def destroy
