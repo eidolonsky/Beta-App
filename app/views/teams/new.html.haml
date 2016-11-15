@@ -1,4 +1,9 @@
 %h1.newh1 New Team
-= render 'form', team: @team
+- if not current_user
+  %p
+    = link_to 'Please Login with Twitter', '/auth/twitter'
+- else
+  %p= render 'form', team: @team
 .newback
-  = link_to 'Back', teams_path
+ = link_to 'Back', teams_path
+
