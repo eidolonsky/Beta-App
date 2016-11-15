@@ -5,5 +5,8 @@
 - else
   %p= render 'form', team: @team
 .newback
+  = current_team.ids
+  = current_team.ids[1]
+  = current_team.name[0]
   = link_to 'Back', teams_path
 
