@@ -13,8 +13,8 @@
       =image_tag 'logo.svg', alt: 'Hockey Fantasy Draft'
       %span.title= @page_title
     #columns
-      .nav
-        %ul
+      %nav
+        %ul.topnav
           %li
             = link_to 'Create New Team', '/' 
           %li 
@@ -32,6 +32,8 @@
               Welcome,
               = current_user.name.titleize
               = link_to 'Logout', '/logout', method: :delete
+              = current_team.name[1]
           - else
             %li= link_to 'Login with Twitter', '/auth/twitter'
+            %li= link_to 'Login with Google', '/auth/google'
     = yield

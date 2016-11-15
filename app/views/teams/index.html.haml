@@ -1,18 +1,15 @@
 %p#notice= notice
-%h1 Teams
-%table
-  %thead
-    %tr
-      %th Name
-      %th Manager
-      %th{:colspan => "3"}
-  %tbody
-    - @teams.each do |team|
-      %tr
-        %td= team.name
-        %td= team.manager
-        %td= link_to 'Show', team
-        %td= link_to 'Edit', edit_team_path(team)
-        %td= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Team', new_team_path
+%h1.newh1 Teams
+.tilebox
+  - @teams.each do |team|
+    .tiles
+      .teamname
+        = team.name
+      .mananger
+        = team.manager
+      .buttons
+        .showbutton
+          = link_to 'Show', team
+        = link_to 'Edit', edit_team_path(team)
+.newback
+  = link_to 'New Team', new_team_path

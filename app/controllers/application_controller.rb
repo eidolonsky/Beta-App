@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by(id: session[:id])
   end
+  def current_team
+    @current_team ||= Team.where(user_id: session[:id])
+  end
 
   helper_method :current_user
+  helper_method :current_team
 end
