@@ -12,6 +12,7 @@
     .banner
       =image_tag 'logo.svg', alt: 'Hockey Fantasy Draft'
       %span.title= @page_title
+      %b= current_team.name
     #columns
       %nav
         %ul.topnav
@@ -32,7 +33,8 @@
               Welcome,
               = current_user.name.titleize
               = link_to 'Logout', '/logout', method: :delete
-              = current_team.name[1]
+            %li
+              = link_to 'Change Team', teams_path
           - else
             %li= link_to 'Login with Twitter', '/auth/twitter'
             %li= link_to 'Login with Google', '/auth/google'
