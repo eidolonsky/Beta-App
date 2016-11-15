@@ -7,9 +7,9 @@
       = player.name
       = player.goals
       = player.assists
-      =form_for @pick, url: {action: "pick"}, :method => :POST do
-        =button_tag 'Draft', type: :submit
-        =hidden_field_tag(:player_store, player.id)
+      - player.rosters.each do |roster|
+        %b
+          = roster.team_id
       = link_to 'Show', player
       = link_to 'Edit', edit_player_path(player)
       = link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' }
