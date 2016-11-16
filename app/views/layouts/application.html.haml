@@ -2,6 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     %title 
       Draft App
       = @page_title
@@ -14,7 +15,7 @@
       %span.title= @page_title
     #columns
       %nav
-        %ul.topnav
+        %ul#myTopnav.topnav
           %li
             = link_to 'Create New Team', '/' 
           %li 
@@ -36,4 +37,7 @@
           - else
             %li= link_to 'Login with Twitter', '/auth/twitter'
             %li= link_to 'Login with Google', '/auth/google'
+          %li.icon
+            %a{:href => "javascript:void(0);", :onclick => "myFunction()"} &#9776
+
     = yield
