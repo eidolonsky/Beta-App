@@ -45,11 +45,4 @@ class PlayersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to players_url
   end
-
-  test "should assert select" do
-    get players_url
-    assert_select "tbody" do |t|
-      assert_select t, "tr", 2
-      end
-  end
 end
