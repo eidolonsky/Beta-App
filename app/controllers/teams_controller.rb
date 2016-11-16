@@ -7,10 +7,7 @@ class TeamsController < ApplicationController
     @teams = Team.where(:user_id => current_team.user_id)
     @placeholder = Team.new
   end
-  def set_team
-    @set_team = Team.find(params[:team_store])
-    session[:team] = @set_team
-  end
+
   # GET /teams/1
   # GET /teams/1.json
   def show

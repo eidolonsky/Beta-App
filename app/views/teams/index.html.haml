@@ -9,9 +9,13 @@
         = team.manager
       .buttons
         .showbutton
-          = form_for @placeholder do
-            = button_tag 'Select', type: :submit
-            = hidden_field_tag(:team_store, team.id)
+          =link_to 'Team'
+          :javascript
+            $(function(){
+             $("#my-button").click(function(){
+              $.post('/myroute');
+              })
+            })
           = link_to 'Show', team
           = link_to 'Edit', edit_team_path(team)
 .newback
