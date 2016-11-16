@@ -7,3 +7,7 @@ one:
 two:
   name: MyString
   manager: MyString
+
+three: 
+  name: MyString
+  manager: MyString
