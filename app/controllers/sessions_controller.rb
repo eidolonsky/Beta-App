@@ -5,7 +5,10 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
   def set_team
-    session[:team]='18'
+    @team_store = Team.find(params[:team_store])
+    @team_id = @team_store.id
+    session[:team] = @team_id
+    redirect_to teams_path
   end
   def destroy
     if current_user
