@@ -1,5 +1,6 @@
 %p#notice= notice
 %h1.newh1 Teams
+%h1 
 .tilebox
   - @teams.each do |team|
     .tiles
@@ -9,13 +10,7 @@
         = team.manager
       .buttons
         .showbutton
-          =link_to 'Team'
-          :javascript
-            $(function(){
-             $("#my-button").click(function(){
-              $.post('/myroute');
-              })
-            })
+          = link_to 'Select as Active', :controller => 'sessions', :action => 'set_team'
           = link_to 'Show', team
           = link_to 'Edit', edit_team_path(team)
 .newback
