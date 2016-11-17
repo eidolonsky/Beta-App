@@ -12,8 +12,7 @@ class PlayersController < ApplicationController
   def pick
     @picks = Player.find(params[:player_store])
     @pick_id = @picks.id
-    @team_id = current_team.id
-    @insert = Roster.create(player_id: @pick_id, team_id: @team_id)
+    @insert = Roster.create(player_id: @pick_id, team_id: session[:team])
     @insert.save
     @pickname = @picks.name
   end
