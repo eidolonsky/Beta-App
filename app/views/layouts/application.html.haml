@@ -21,19 +21,19 @@
       %nav
         %ul#myTopnav.topnav
           %li
-            = link_to 'Create New Team', '/' 
+            = link_to 'Create New Team', root_path 
           %li 
-            = link_to 'All Teams', '/rosters'
+            = link_to 'All Teams', rosters_path
           %li
-            = link_to 'Draft Now', '/players'
+            = link_to 'Draft Now', players_path
           %li 
-            = link_to 'Edit Team Info', '/teams/:id/edit' 
+            = link_to 'Edit Team Info', edit_team_path(id: session[:team]) 
           - if current_user
             %li.usr
               Welcome,
               = current_user.name.titleize
             %li  
-              = link_to 'Logout', '/logout', method: :delete
+              = link_to 'Logout', logout_path, method: :delete
             %li
               = link_to 'Change Team', teams_path
           - else
