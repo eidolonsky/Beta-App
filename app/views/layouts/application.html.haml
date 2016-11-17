@@ -13,7 +13,10 @@
     .banner
       =image_tag 'logo.svg', alt: 'Hockey Fantasy Draft'
       %span.title= @page_title
-      %b= current_team.name
+      - if current_team  
+        %b= current_team.name
+      - else 
+        Create a team! 
     #columns
       %nav
         %ul#myTopnav.topnav
@@ -26,9 +29,10 @@
           %li 
             = link_to 'Edit Team Info', '/teams/:id/edit' 
           - if current_user
-            %li
+            %li.usr
               Welcome,
               = current_user.name.titleize
+            %li  
               = link_to 'Logout', '/logout', method: :delete
             %li
               = link_to 'Change Team', teams_path
