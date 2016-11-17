@@ -1,5 +1,8 @@
 %p#notice= notice
 %h1.newh1 Teams
+%h1
+  = session[:team]
+%h1 
 .tilebox
   - @teams.each do |team|
     .tiles
@@ -9,7 +12,11 @@
         = team.manager
       .buttons
         .showbutton
+          =form_for @placeholder, url: sessions_set_team_path, :method => :post do
+            =button_tag 'Set Team', type: :submit
+            =hidden_field_tag(:team_store, team.id)
+          = link_to 'Select as Active', sessions_set_team_path, :method => :post
           = link_to 'Show', team
-        = link_to 'Edit', edit_team_path(team)
+          = link_to 'Edit', edit_team_path(team)
 .newback
   = link_to 'New Team', new_team_path

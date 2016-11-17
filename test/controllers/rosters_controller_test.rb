@@ -3,6 +3,8 @@ require 'test_helper'
 class RostersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @roster = rosters(:one)
+    @team = teams(:one)
+    @player = players(:one)
   end
 
   test "should get index" do
@@ -17,7 +19,7 @@ class RostersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create roster" do
     assert_difference('Roster.count') do
-      post rosters_url, params: { roster: {  } }
+      post rosters_url, params: { roster: { player_id: @team.id, team_id: @team.id } }
     end
 
     assert_redirected_to roster_url(Roster.last)
@@ -34,7 +36,7 @@ class RostersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update roster" do
-    patch roster_url(@roster), params: { roster: {  } }
+    patch roster_url(@roster), params: { roster: { player_id: @team.id, team_id: @team.id } }
     assert_redirected_to roster_url(@roster)
   end
 
