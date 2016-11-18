@@ -13,12 +13,15 @@
     #columns
       %nav
         %ul#myTopnav.topnav
-          %li
-            = link_to 'Create New Team', root_path 
-          %li
-            = link_to 'Draft Now', players_path
-          %li 
-            = link_to 'Edit Team Info', edit_team_path(id: session[:team]) 
+          - if current_user
+            %li
+              = link_to 'Create New Team', root_path 
+          - if current_user
+            %li
+              = link_to 'Draft Now', players_path
+          - if current_user
+            %li 
+              = link_to 'Edit Team Info', edit_team_path(id: session[:team]) 
           - if current_user
             %li.usr
               Welcome,
