@@ -26,10 +26,10 @@
               Welcome,
               = current_user.name.titleize
             %li  
-              = nav_link 'Logout', logout_path, method: :delete
+              = link_to 'Logout', logout_path, method: :delete
           - else
-            %li= nav_link 'Login with Twitter', '/auth/twitter'
-            %li= nav_link 'Login with Google', '/auth/google'
+            %li= link_to 'Login with Twitter', '/auth/twitter'
+            %li= link_to 'Login with Google', '/auth/google'
           %li.icon
             %a{:href => "javascript:void(0);", :onclick => "myFunction()"} &#9776
 
