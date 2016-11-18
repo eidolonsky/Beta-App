@@ -11,7 +11,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body{:class => controller.controller_name}
     .banner
-      =image_tag 'logo.svg', alt: 'Hockey Fantasy Draft'
       %span.title= @page_title
       - if current_team  
         %b= current_team.name
