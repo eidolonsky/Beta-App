@@ -1,11 +1,10 @@
 %h1.newh1 New Team
 - if not current_user
-  %p
+  %p.newp
     = link_to 'Please Login with Twitter', '/auth/twitter'
+    = link_to 'or Google', '/auth/google'
 - else
   %p= render 'form', team: @team
 .newback
-  = current_team.ids
-  = current_team.ids[1]
-  = current_team.name[0]
   = link_to 'Back', teams_path
+

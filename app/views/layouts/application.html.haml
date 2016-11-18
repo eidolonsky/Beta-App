@@ -2,6 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     %title 
       Draft App
       = @page_title
@@ -9,31 +10,27 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body{:class => controller.controller_name}
-    .banner
-      =image_tag 'logo.svg', alt: 'Hockey Fantasy Draft'
-      %span.title= @page_title
     #columns
       %nav
-        %ul.topnav
+        %ul#myTopnav.topnav
           %li
-            = link_to 'Create New Team', '/' 
-          %li 
-            = link_to 'All Teams', '/rosters'
-          %li 
-            = link_to 'Your Team', '/rosters/:id'
+            = nav_link 'Create New Team', root_path 
           %li
-            = link_to 'Draft Now', '/players'
+            = nav_link 'Draft Now', players_path
           %li 
-            = link_to 'Edit Team Info', '/teams/:id/edit'
+            = nav_link 'Edit Team Info', edit_team_path(id: session[:team]) 
           %li
-            = link_to 'Advanced Player Info', 'players/:id' 
+            = nav_link 'Change Team', teams_path          
           - if current_user
-            %li
+            %li.usr
               Welcome,
               = current_user.name.titleize
-              = link_to 'Logout', '/logout', method: :delete
-              = current_team.name[1]
+            %li  
+              = link_to 'Logout', logout_path, method: :delete
           - else
             %li= link_to 'Login with Twitter', '/auth/twitter'
             %li= link_to 'Login with Google', '/auth/google'
+          %li.icon
+            %a{:href => "javascript:void(0);", :onclick => "myFunction()"} &#9776
+
     = yield
