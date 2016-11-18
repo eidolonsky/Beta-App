@@ -69,6 +69,6 @@ class RostersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def roster_params
-      params.fetch(:roster, {})
+      params.fetch(:roster).permit(:player_id, :team_id)
     end
 end

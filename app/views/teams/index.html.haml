@@ -1,15 +1,28 @@
 %p#notice= notice
 %h1.newh1 Teams
+%h2.newh2
+  Your current team is set to:
+  %span.newse  
+    = session[:teamname]
+%h1 
 .tilebox
   - @teams.each do |team|
     .tiles
       .teamname
+        %span.tname  
+          Team:
         = team.name
       .mananger
+        %span.tname  
+          Manager:
         = team.manager
       .buttons
         .showbutton
-          = link_to 'Show', team
-        = link_to 'Edit', edit_team_path(team)
+          =form_for @placeholder, url: sessions_set_team_path, :method => :post do
+            =button_tag 'Set Team', type: :submit
+            =hidden_field_tag(:team_store, team.id)
+            .tilebutton  
+              = link_to 'Show', team
+              = link_to 'Edit', edit_team_path(team)
 .newback
   = link_to 'New Team', new_team_path
