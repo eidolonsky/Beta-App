@@ -93,6 +93,7 @@ $color_gravel_approx: #46494c;
     }
   }
 }
+
 .newback {
   padding-top: 2.333em;
   font-size: 1.333em;
@@ -186,7 +187,10 @@ ul.topnav li a {
   transition: 0.3s;
   font-size: 1.777em;
 }
-ul.topnav li a:hover {background-color: #555;}
+ul.topnav li a:hover {background-color: #555555;}
+.current {
+  background-color: #555555;
+}
 ul.topnav li.icon {display: none;}
 .form {
   padding: 1em;
