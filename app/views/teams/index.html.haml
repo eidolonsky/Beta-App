@@ -1,7 +1,8 @@
 %p#notice= notice
 %h1.newh1 Teams
 %h1
-  = session[:team]
+  Your current team is set to:
+  = session[:teamname]
 %h1 
 .tilebox
   - @teams.each do |team|
