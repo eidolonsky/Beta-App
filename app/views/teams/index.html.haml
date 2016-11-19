@@ -7,22 +7,43 @@
 %h1 
 .tilebox
   - @teams.each do |team|
-    .tiles
-      .teamname
-        %span.tname  
-          Team:
-        = team.name
-      .mananger
-        %span.tname  
-          Manager:
-        = team.manager
-      .buttons
-        .showbutton
-          =form_for @placeholder, url: sessions_set_team_path, :method => :post do
-            =button_tag 'Set Team', type: :submit
-            =hidden_field_tag(:team_store, team.id)
-            .tilebutton  
-              = link_to 'Show', team
-              = link_to 'Edit', edit_team_path(team)
+    - if team.name == session[:teamname]
+      #selectteam.tiles
+        .teamname
+          %span.tname  
+            Team:
+          %span.selteam 
+            = team.name
+        .mananger
+          %span.tname  
+            Manager:
+          %span.selteam             
+            = team.manager
+        .buttons
+          .showbutton
+            =form_for @placeholder, url: sessions_set_team_path, :method => :post do
+              =button_tag 'Set Team', type: :submit
+              =hidden_field_tag(:team_store, team.id)
+              .tilebutton  
+                = link_to 'Show', team
+                = link_to 'Edit', edit_team_path(team)
+    - else
+      .tiles
+        .teamname
+          %span.tname  
+            Team:
+          = team.name
+        .mananger
+          %span.tname  
+            Manager:
+          = team.manager
+        .buttons
+          .showbutton
+            =form_for @placeholder, url: sessions_set_team_path, :method => :post do
+              =button_tag 'Set Team', type: :submit
+              =hidden_field_tag(:team_store, team.id)
+              .tilebutton  
+                = link_to 'Show', team
+                = link_to 'Edit', edit_team_path(team)            
 .newback
   = link_to 'New Team', new_team_path
