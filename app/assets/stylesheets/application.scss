@@ -97,7 +97,7 @@ $color_gravel_approx: #46494c;
   color: #687396;
 }
 #selectteam.tiles {
-  box-shadow: 0 0.125em 0.125em 0.0625em #687396;
+  box-shadow: 0 0.25em 0.25em 0.125em #687396;
 }
 .newback {
   padding-top: 2.333em;
@@ -284,7 +284,6 @@ a {
   }
 }
 @media screen and (max-width: 50em) {
-  /* nav start */
   ul.topnav li:not(:first-child) {display: none;}
   ul.topnav li.icon {
     float: right;
@@ -304,5 +303,4 @@ a {
     display: block;
     text-align: left;
   }
-  /* nav end */
 }   
