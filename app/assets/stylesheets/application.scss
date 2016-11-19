@@ -93,7 +93,12 @@ $color_gravel_approx: #46494c;
     }
   }
 }
-
+.selteam {
+  color: #687396;
+}
+#selectteam.tiles {
+  box-shadow: 0 0.125em 0.125em 0.0625em #687396;
+}
 .newback {
   padding-top: 2.333em;
   font-size: 1.333em;
@@ -212,7 +217,6 @@ ul.topnav li.icon {display: none;}
   width: 10em;
   height: auto;
   font-size: 1.777em;
-  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
   box-shadow: 0 0.125em 0.125em 0.0625em $color_suva_gray_approx;
   margin: 1em;
   img {
