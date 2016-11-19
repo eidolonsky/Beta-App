@@ -22,6 +22,7 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-family: futura;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -56,15 +57,104 @@ $color_ebony_clay_approx: #202c39;
 $color_gravel_approx: #46494c;
 
 .newh1 {
-  padding-top: 0.333em;
+  padding-top: 1.333em;
   font-size: 3.333em;
-  padding-bottom: 0.333em;
+  text-align: center;
+}
+.newh2 {
+  padding-top: 1.333em;
+  font-size: 1.333em;
+  text-align: center;  
+}
+.newse {
+  font-size: 1.555em; 
+}
+.newp {
+  padding-top: 2.333em;
+  font-size: 1.333em;
+  text-align: center;
+  a {
+    &:link {
+      color: #000000;
+      text-decoration: none;
+    }
+    &:visited {
+      color: #000000;
+      text-decoration: none;
+    }
+    &:hover {
+      color: #000000;    
+      text-decoration: none;
+      background-color: #ffffff;
+    }
+    &:active {
+      color: #000000;    
+      text-decoration: none;
+    }
+  }
+}
+.selteam {
+  color: #687396;
+}
+#selectteam.tiles {
+  box-shadow: 0 0.25em 0.25em 0.125em #687396;
+}
+#error_explanation {
+  font-size: 0.555em;
+  color: #555555;
 }
 .newback {
   padding-top: 2.333em;
   font-size: 1.333em;
   padding-bottom: 0.333em;
   text-align: center;
+}
+button {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.333em 0.333em;
+  text-align: center;
+  display: inline-block;
+  font-size: 0.777em;
+  margin: 0.333em;
+  cursor: pointer;
+  border: none;
+}
+.tname {
+  font-size: 0.777em;
+}
+.actions input {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.333em 0.333em;
+  text-align: center;
+  display: inline-block;
+  font-size: 0.777em;
+  margin: 0.333em;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    color: #ffffff;    
+    background-color: $color_gravel_approx;
+    text-decoration: none;
+  }
+}
+.tilebutton a {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.333em 0.333em;
+  text-align: center;
+  display: inline-block;
+  font-size: 0.777em;
+  margin: 0.333em;
+}
+.newback a {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.333em;
 }
 .field {
   padding: 0.133em;
@@ -78,6 +168,39 @@ $color_gravel_approx: #46494c;
     height: 5em;
   }
 }
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000000;
+}
+ul.topnav li {
+  float: left;
+}
+.usr {
+  display: inline-block;
+  color: #CFDAFF;
+  text-align: bottom;
+  padding: 0.333em 0.333em;
+  text-decoration: none;
+  font-size: 1.777em;
+  font-family: futura;
+}
+ul.topnav li a {
+  display: inline-block;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 0.333em 0.333em;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 1.777em;
+}
+ul.topnav li a:hover {background-color: #555555;}
+.current {
+  background-color: #555555;
+}
+ul.topnav li.icon {display: none;}
 .form {
   padding: 1em;
   margin-top: 0.333em;
@@ -98,7 +221,6 @@ $color_gravel_approx: #46494c;
   width: 10em;
   height: auto;
   font-size: 1.777em;
-  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
   box-shadow: 0 0.125em 0.125em 0.0625em $color_suva_gray_approx;
   margin: 1em;
   img {
@@ -148,63 +270,41 @@ $color_gravel_approx: #46494c;
 }
 a {
   &:link {
-    color: $color_ebony_clay_approx;
+    color: #ffffff;
     text-decoration: none;
   }
   &:visited {
-    color: $color_ebony_clay_approx;
+    color: #ffffff;
     text-decoration: none;
   }
   &:hover {
-    color: $color_gravel_approx;
+    color: #ffffff;    
+    background-color: $color_gravel_approx;
     text-decoration: none;
   }
   &:active {
-    color: $color_gravel_approx;
+    color: #ffffff;    
     text-decoration: none;
   }
 }
-@media screen and(min-width: 50em) {
-  .newh1 {
-    padding-top: 0.666em;
-    font-size: 3.666em;
-    text-align: center;
+@media screen and (max-width: 50em) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
   }
-  .form {
-    margin-top: 1.333em;
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
-  .actions {
-    padding-left: 0.133em;
-    padding-top: 0.333em;
-    font-size: 1.333em;
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
   }
-  ul.topnav li a {
-    font-size: 1.777em;
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
   }
-}
-.actions input {
-  padding-left: 0.133em;
-  font-size: 0.5em;
-}
-ul.topnav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: $black;
-  li {
-    float: left;
-    a {
-      display: inline-block;
-      color: $white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      transition: 0.3s;
-      font-size: 1.5em;
-      &:hover {
-        background-color: $color_fuscous_gray_approx;
-      }
-    }
-  }
-} 
+}   

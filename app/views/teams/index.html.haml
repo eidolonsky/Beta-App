@@ -1,18 +1,49 @@
 %p#notice= notice
-%h1 Teams
-%table
-  %thead
-    %tr
-      %th Name
-      %th Manager
-      %th{:colspan => "3"}
-  %tbody
-    - @teams.each do |team|
-      %tr
-        %td= team.name
-        %td= team.manager
-        %td= link_to 'Show', team
-        %td= link_to 'Edit', edit_team_path(team)
-        %td= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Team', new_team_path
+%h1.newh1 Teams
+%h2.newh2
+  Your current team is set to:
+  %span.newse  
+    = session[:teamname]
+%h1 
+.tilebox
+  - @teams.each do |team|
+    - if team.name == session[:teamname]
+      #selectteam.tiles
+        .teamname
+          %span.tname  
+            Team:
+          %span.selteam 
+            = team.name
+        .mananger
+          %span.tname  
+            Manager:
+          %span.selteam             
+            = team.manager
+        .buttons
+          .showbutton
+            =form_for @placeholder, url: sessions_set_team_path, :method => :post do
+              =button_tag 'Set Team', type: :submit
+              =hidden_field_tag(:team_store, team.id)
+              .tilebutton  
+                = link_to 'Show', team
+                = link_to 'Edit', edit_team_path(team)
+    - else
+      .tiles
+        .teamname
+          %span.tname  
+            Team:
+          = team.name
+        .mananger
+          %span.tname  
+            Manager:
+          = team.manager
+        .buttons
+          .showbutton
+            =form_for @placeholder, url: sessions_set_team_path, :method => :post do
+              =button_tag 'Set Team', type: :submit
+              =hidden_field_tag(:team_store, team.id)
+              .tilebutton  
+                = link_to 'Show', team
+                = link_to 'Edit', edit_team_path(team)            
+.newback
+  = link_to 'New Team', new_team_path
