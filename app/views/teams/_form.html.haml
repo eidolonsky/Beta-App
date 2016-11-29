@@ -15,8 +15,7 @@
       = f.label :manager
       = f.text_field :manager, :placeholder=> current_user.name.titleize
     .field
-      = f.label :id
-      = f.select :user_id, User.all.collect {|u| [u.id]}, :readonly=> true
+      = f.hidden_field :user_id, :value=> session[:id], :readonly=> true
     .actions
       = f.submit
 
