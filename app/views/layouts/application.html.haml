@@ -10,26 +10,25 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body{:class => controller.controller_name}
-    #columns
+    #columns 
       %nav
         %ul#myTopnav.topnav
-          - if current_user
-            %li
-              = link_to 'Create New Team', root_path 
-          - if current_user
-            %li
-              = link_to 'Draft Now', players_path
-          - if current_user
-            %li 
-              = link_to 'Edit Team Info', edit_team_path(id: session[:team]) 
-          - if current_user
+          %li
+            = nav_link 'Create New Team', root_path 
+          %li
+            = nav_link 'Draft Now', players_path
+          - if current_user    
+            - if current_team
+              - if session[:teamname]
+                %li  
+                  = nav_link 'Edit Team Info', edit_team_path(id: session[:team])
+              %li
+                = nav_link 'Change Team', teams_path          
             %li.usr
               Welcome,
               = current_user.name.titleize
             %li  
               = link_to 'Logout', logout_path, method: :delete
-            %li
-              = link_to 'Change Team', teams_path
           - else
             %li= link_to 'Login with Twitter', '/auth/twitter'
             %li= link_to 'Login with Google', '/auth/google'

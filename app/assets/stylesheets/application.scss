@@ -22,6 +22,7 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-family: futura;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -56,20 +57,104 @@ $color_ebony_clay_approx: #202c39;
 $color_gravel_approx: #46494c;
 
 .newh1 {
-  padding-top: 0.333em;
+  padding-top: 1.333em;
   font-size: 3.333em;
   text-align: center;
+}
+.newh2 {
+  padding-top: 1.333em;
+  font-size: 1.333em;
+  text-align: center;  
+}
+.newse {
+  font-size: 1.555em; 
 }
 .newp {
   padding-top: 2.333em;
   font-size: 1.333em;
   text-align: center;
+  a {
+    &:link {
+      color: #000000;
+      text-decoration: none;
+    }
+    &:visited {
+      color: #000000;
+      text-decoration: none;
+    }
+    &:hover {
+      color: #000000;    
+      text-decoration: none;
+      background-color: #ffffff;
+    }
+    &:active {
+      color: #000000;    
+      text-decoration: none;
+    }
+  }
+}
+.selteam {
+  color: #687396;
+}
+#selectteam.tiles {
+  box-shadow: 0 0.25em 0.25em 0.125em #687396;
+}
+#error_explanation {
+  font-size: 0.555em;
+  color: #555555;
 }
 .newback {
   padding-top: 2.333em;
   font-size: 1.333em;
   padding-bottom: 0.333em;
   text-align: center;
+}
+button {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.333em 0.333em;
+  text-align: center;
+  display: inline-block;
+  font-size: 0.777em;
+  margin: 0.333em;
+  cursor: pointer;
+  border: none;
+}
+.tname {
+  font-size: 0.777em;
+}
+.actions input {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.333em 0.333em;
+  text-align: center;
+  display: inline-block;
+  font-size: 0.777em;
+  margin: 0.333em;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    color: #ffffff;    
+    background-color: $color_gravel_approx;
+    text-decoration: none;
+  }
+}
+.tilebutton a {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.333em 0.333em;
+  text-align: center;
+  display: inline-block;
+  font-size: 0.777em;
+  margin: 0.333em;
+}
+.newback a {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.333em;
 }
 .field {
   padding: 0.133em;
@@ -111,7 +196,10 @@ ul.topnav li a {
   transition: 0.3s;
   font-size: 1.777em;
 }
-ul.topnav li a:hover {background-color: #555;}
+ul.topnav li a:hover {background-color: #555555;}
+.current {
+  background-color: #555555;
+}
 ul.topnav li.icon {display: none;}
 .form {
   padding: 1em;
@@ -133,7 +221,6 @@ ul.topnav li.icon {display: none;}
   width: 10em;
   height: auto;
   font-size: 1.777em;
-  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
   box-shadow: 0 0.125em 0.125em 0.0625em $color_suva_gray_approx;
   margin: 1em;
   img {
@@ -183,24 +270,24 @@ ul.topnav li.icon {display: none;}
 }
 a {
   &:link {
-    color: $color_ebony_clay_approx;
+    color: #ffffff;
     text-decoration: none;
   }
   &:visited {
-    color: $color_ebony_clay_approx;
+    color: #ffffff;
     text-decoration: none;
   }
   &:hover {
-    color: $color_gravel_approx;
+    color: #ffffff;    
+    background-color: $color_gravel_approx;
     text-decoration: none;
   }
   &:active {
-    color: $color_gravel_approx;
+    color: #ffffff;    
     text-decoration: none;
   }
 }
 @media screen and (max-width: 50em) {
-  /* nav start */
   ul.topnav li:not(:first-child) {display: none;}
   ul.topnav li.icon {
     float: right;
@@ -220,5 +307,4 @@ a {
     display: block;
     text-align: left;
   }
-  /* nav end */
 }   

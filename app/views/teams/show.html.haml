@@ -2,13 +2,13 @@
   .tiles
     %p#notice= notice
     %p
-      %strong Name:
+      %span.tname 
+        Name:
       = @team.name
     %p
-      %strong Manager:
+      %span.tname
+        Manager:
       = @team.manager
-.buttonbox
-  .buttons
-    = link_to 'Edit', edit_team_path(@team)
-  .buttons
-    = link_to 'Back', teams_path
+.newback
+  = link_to 'Edit', edit_team_path(@team)
+  = link_to 'Back', teams_path
