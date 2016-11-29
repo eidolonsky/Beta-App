@@ -11,6 +11,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body{:class => controller.controller_name}
     #columns 
+      = session[:teamname]
       %nav
         %ul#myTopnav.topnav
           %li
