@@ -4,7 +4,8 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = Team.where(:user_id => current_team.user_id)
+    @placeholder = Team.new
   end
 
   # GET /teams/1
@@ -16,7 +17,7 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
   end
-
+  
   # GET /teams/1/edit
   def edit
   end
@@ -69,6 +70,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:name, :manager)
+      params.require(:team).permit(:name, :manager, :user_id)
     end
 end

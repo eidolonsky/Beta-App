@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  name: The Cobras
+  manager: Karl
+
+two:
   name: MyString
   manager: MyString
 
-two:
+three: 
   name: MyString
   manager: MyString
