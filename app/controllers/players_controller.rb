@@ -4,10 +4,13 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
+    #Display players to be drafted
     @page_title = "Players"
     @players = Player.all
     @rosters = Roster.all
     @pick = Player.new
+    #Display players that are already drafted to each team
+    @drafted = Roster.where("team_id = ?", session[:team])
   end
   def pick
     @picks = Player.find(params[:player_store])

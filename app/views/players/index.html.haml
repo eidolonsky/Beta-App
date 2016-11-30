@@ -1,5 +1,19 @@
 %p#notice= notice
 %h1.newh1 Players
+.tilebox
+  .tiles
+    Your team is:
+    = session[:teamname]
+    <br>
+    and your ID is:
+    = session[:team]
+    <br>
+    Players Drafted:
+    - @drafted.each do |drafted|
+      .playername
+        = drafted.player.name
+        = drafted.player.goals
+        = drafted.player.assists
 .newback
   Name, Goals, Assists, Drafter
 .tilebox
