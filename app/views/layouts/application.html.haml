@@ -3,6 +3,8 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    - if content_for? :for_head
+      = yield :for_head
     %title 
       Draft App
       = @page_title
