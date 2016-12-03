@@ -223,11 +223,17 @@ ul.topnav li.icon {display: none;}
   font-size: 1.777em;
   box-shadow: 0 0.125em 0.125em 0.0625em $color_suva_gray_approx;
   margin: 1em;
-  img {
-    width: 10em;
-    height: auto;
-  }
 }
+.sidebar {
+  position: fixed;
+  padding: 1em;
+  width: 10em;
+  height: auto;
+  font-size: 1.777em;
+  box-shadow: 0 0.125em 0.125em 0.0625em $color_suva_gray_approx;
+  margin: 1em;  
+}
+
 .phototitle {
   padding-top: 1em;
   margin-bottom: 0.5em;
