@@ -3,6 +3,8 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    - if content_for? :for_head
+      = yield :for_head
     %title 
       Draft App
       = @page_title
@@ -11,7 +13,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body{:class => controller.controller_name}
     #columns 
-      = session[:teamname]
       %nav
         %ul#myTopnav.topnav
           %li
