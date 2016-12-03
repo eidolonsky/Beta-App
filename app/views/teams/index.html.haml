@@ -22,7 +22,7 @@
         .buttons
           .showbutton
             =form_for @placeholder, url: sessions_set_team_path, :method => :post do
-              =button_tag 'Set Team', type: :submit
+              =button_tag 'Set', type: :submit
               =hidden_field_tag(:team_store, team.id)
               .tilebutton  
                 = link_to 'Show', team
@@ -40,7 +40,7 @@
         .buttons
           .showbutton
             =form_for @placeholder, url: sessions_set_team_path, :method => :post do
-              =button_tag 'Set Team', type: :submit
+              =button_tag 'Set', type: :submit
               =hidden_field_tag(:team_store, team.id)
               .tilebutton  
                 = link_to 'Show', team

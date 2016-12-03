@@ -4,17 +4,24 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
+    #Display players to be drafted
     @page_title = "Players"
     @players = Player.all
     @rosters = Roster.all
     @pick = Player.new
+    #Display players that are already drafted to each team
+    @drafted = Roster.where("team_id = ?", session[:team])
   end
   def pick
     @picks = Player.find(params[:player_store])
     @pick_id = @picks.id
     @insert = Roster.create(player_id: @pick_id, team_id: session[:team])
-    @insert.save
-    @pickname = @picks.name
+    if @insert.save
+       @pickname = @picks.name
+    else
+      flash[:notice] = "This player has already been drafted"
+      redirect_to players_url
+    end
   end
   # GET /players/1
   # GET /players/1.json
