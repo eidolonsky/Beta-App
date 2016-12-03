@@ -1,33 +1,33 @@
-%p#notice= notice
+%p#notice.newp= notice
 %h1.newh1 Players
-.tilebox
-  .tiles
-    Your team is:
-    = session[:teamname]
-    <br>
-    and your ID is:
-    = session[:team]
-    <br>
-    Players Drafted:
-    - @drafted.each do |drafted|
-      .playername
-        = drafted.player.name
-        = drafted.player.goals
-        = drafted.player.assists
+.sidebar
+  Your team is:
+  = session[:teamname]
+  <br>
+  and your ID is:
+  = session[:team]
+  <br>
+  Players Drafted:
+  - @drafted.each do |drafted|
+    .playername
+      = drafted.player.name
+      = drafted.player.goals
+      = drafted.player.assists
 .newback
   Name, Goals, Assists, Drafter
-.tilebox
-  .tiles
-    - @players.each do |player|
-      .playername
-        = player.name
-        = player.goals
-        = player.assists
-        - player.rosters.each do |roster|
-          %b
-            = roster.team_id
-        =form_for @pick, url: {action: "pick"}, :method => :POST do
-          =button_tag 'Draft', type: :submit
-          =hidden_field_tag(:player_store, player.id)
-        
-        = link_to 'Show', player
+.sider  
+  .tilebox
+    .tiles
+      - @players.each do |player|
+        .playername
+          = player.name
+          = player.goals
+          = player.assists
+          - player.rosters.each do |roster|
+            %b
+              = roster.team_id
+          =form_for @pick, url: {action: "pick"}, :method => :POST do
+            =button_tag 'Draft', type: :submit
+            =hidden_field_tag(:player_store, player.id)
+          .newshow
+            = link_to 'Show', player

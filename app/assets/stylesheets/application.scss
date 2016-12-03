@@ -112,13 +112,14 @@ $color_gravel_approx: #46494c;
 button {
   background-color: #000000;
   color: #ffffff;
-  padding: 0.333em 0.333em;
   text-align: center;
   display: inline-block;
   font-size: 0.777em;
-  margin: 0.333em;
   cursor: pointer;
   border: none;
+  margin-bottom: 0.222em;
+  width: 2.777em;
+  height: 1.777em;
 }
 .tname {
   font-size: 0.777em;
@@ -146,7 +147,8 @@ button {
   text-align: center;
   display: inline-block;
   font-size: 0.777em;
-  margin: 0.333em;
+  width: 2.777em;
+  margin-bottom: 0.222em;
 }
 .newback a {
   background-color: #000000;
@@ -223,15 +225,51 @@ ul.topnav li.icon {display: none;}
   font-size: 1.777em;
   box-shadow: 0 0.125em 0.125em 0.0625em $color_suva_gray_approx;
   margin: 1em;
-  img {
-    width: 10em;
-    height: auto;
-  }
 }
-.phototitle {
-  padding-top: 1em;
-  margin-bottom: 0.5em;
-  font-size: 0.7em;
+.sidebar {
+  position: fixed;
+  padding: 1em;
+  width: 10em;
+  height: auto;
+  font-size: 1.777em;
+  box-shadow: 0 0.125em 0.125em 0.0625em $color_suva_gray_approx;
+  margin: 1em;  
+  left: 0em;
+  background-color: #FFFFFF;
+}
+.playername {
+  padding-top: 0.777em;
+}
+.newshow {
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.777em;
+  width: 2.777em;
+  height: 1.777em;
+  display: table-cell;
+  vertical-align: middle;
+  font-family: futura;
+}
+.newshow a{
+  font-family: futura;
+  &:link {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  &:visited {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  &:hover {
+    color: #ffffff;    
+    background-color: $black;
+    text-decoration: none;
+  }
+  &:active {
+    color: #ffffff;    
+    text-decoration: none; 
+  }   
 }
 .buttonbox {
   display: flex;
@@ -245,29 +283,11 @@ ul.topnav li.icon {display: none;}
   margin-left: 1em;
   font-size: 1.222em;
 }
-.photodesc {
-  margin-bottom: 1em;
-  padding-top: 1em;
-  font-size: 1.333em;
-}
+
 #showp {
   height: auto;
 }
-.tagbox {
-  display: flex;
-  justify-content: center;
-  margin-top: 1em;
-  flex-wrap: wrap;
-}
-.tags {
-  margin-top: 1em;
-  margin-right: 1em;
-  margin-left: 1em;
-  font-size: 2em;
-}
-.phototag {
-  margin-bottom: 0.333em;
-}
+
 a {
   &:link {
     color: #ffffff;
@@ -306,5 +326,11 @@ a {
   ul.topnav.responsive li a {
     display: block;
     text-align: left;
+  }
+  .sidebar {
+    position: relative;
+  }
+  .tilebox {
+    display: block;
   }
 }   
